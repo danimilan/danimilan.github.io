@@ -1,3 +1,8 @@
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+}
 .cabecera{
     float: left;
     text-align: left;
@@ -18,12 +23,14 @@
 */
 .container-UX{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 2px solid red;
-    gap: 90px;
+    gap: 30px 220px;
+    margin: 20px auto;
+    width: 80%;
 }
 .container {
     display: flex;
@@ -39,9 +46,58 @@
 
 .menu {
     display: flex;
-    gap: 20px; /* Espacio entre enlaces */
+    gap: 40px; /* Espacio entre enlaces */
     margin-left: auto; /* Mueve el menú a la derecha */
 }
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: auto; /* Tamaño uniforme */
+    height: auto;
+    min-width: 400px;  /* Tamaño mínimo */
+    max-width: 600px;  /* Tamaño máximo */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Asegura que todas las imágenes se vean igual */
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
 
 
 /* ----------------------------------------------
