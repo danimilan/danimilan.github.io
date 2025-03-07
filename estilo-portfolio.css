@@ -34,17 +34,18 @@ html,body{
 .purple{
     color: #6246ea !important;
 }
-.container-UX{
-    display: grid;
-    grid-template-columns: 200px 200px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.container-UX {
     flex: 1;
-    gap: 30px 220px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas del mismo tamaño */
+    grid-template-rows: auto auto; /* Dos filas automáticas */
+    gap: 30px; /* Espacio entre imágenes */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
     margin: 20px auto;
-    width: 80%;
+    width: 40%;
 }
+
 .container-about{
     display: grid;
     grid-template-columns: 300px 300px;
