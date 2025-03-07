@@ -20,10 +20,15 @@ a{
     float: left;
     text-align: left;
 }
-body{
+html,body{
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #fffffe;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-x: hidden;
 }
 
 .purple{
@@ -35,7 +40,18 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    flex: 1;
+    gap: 30px 220px;
+    margin: 20px auto;
+    width: 80%;
+}
+.container-about{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
     gap: 30px 220px;
     margin: 20px auto;
     width: 80%;
@@ -45,7 +61,7 @@ body{
     align-items: center;
     text-align: center;
     justify-content: space-between; /* Empuja los elementos */
-
+    width: 100%;
     padding: 10px;
     color: #6246ea !important;
     background-color: #d1d1e9;
@@ -68,6 +84,9 @@ h4{
 .grid-item {
     display: flex;
     justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
     padding: 40px;
 }
@@ -201,12 +220,11 @@ h4{
 }
 
 footer {
-    text-align: center; /* Asegura que ocupe todo el ancho disponible */
-    display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Asegura que el contenido esté alineado verticalmente */
-    padding: 10px; /* Opcional: añade espacio interno */  
+    width: 100%;
+    text-align: center;
+    padding: 10px;
     color: #6246ea !important;
     background-color: #d1d1e9;
+    position: relative; /* Si el contenido es poco, lo mantiene en su posición */
+    bottom: 0;
 }
-
