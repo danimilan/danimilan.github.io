@@ -78,6 +78,7 @@ a{
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 20px;
         width: 100%;
 }
 .roboto {
@@ -92,6 +93,17 @@ a{
     float: left;
     text-align: left;
 }
+
+
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: #fffffe;
+    overflow-x: hidden;
+}
+
+
+/*
 html,body{
     height: 100%;
     margin: 0;
@@ -102,23 +114,37 @@ html,body{
     flex: 1;
     overflow-x: hidden;
 }
-
+*/
 .purple{
     color: #6246ea !important;
 }
+
+
 .container-UX {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas del mismo tamaño */
-    grid-template-rows: auto auto; /* Dos filas automáticas */
-    gap: 30px; /* Espacio entre imágenes */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: auto auto; 
+    gap: 30px; 
+    justify-content: center; 
+    align-items: center;
     margin: 20px auto;
     width: 40%;
 }
 
 .container-about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-weight: 18px;
+    line-height: 1.6;
+}
+/*.container-about{
     display: grid;
     grid-template-columns: 500px;
     flex-direction: column;
@@ -127,7 +153,7 @@ html,body{
     flex: 1;
     margin: 20px auto;
     width: 100%;
-}
+}*/
 .container {
     display: flex;
     align-items: center;
@@ -170,6 +196,21 @@ h4{
     height: auto;
     min-width: 400px;  /* Tamaño mínimo */
     max-width: 600px;  /* Tamaño máximo */
+}
+.container-UX-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+.image-container-index {
+    position: relative;
+    overflow: hidden;
+    width: auto; /* Tamaño uniforme */
+    height: auto;
+    min-width: 400px;  /* Tamaño mínimo */
+    max-width: 600px;  /* Tamaño máximo */
+    align-items: center;
 }
 .image-container img {
     max-width: 100%;
@@ -314,9 +355,8 @@ footer {
     text-align: center;
     padding: 10px;
     color: #6246EA !important;
-    background-color: white;
-    position: relative; /* Si el contenido es poco, lo mantiene en su posición */
-    bottom: 0;
+    background-color: white;/* Si el contenido es poco, lo mantiene en su posición */
+
 }
 @media (max-width: 768px) {
     .roboto{
@@ -347,8 +387,23 @@ footer {
         padding: 0 10px;
         grid-template-columns: unset !important;
         grid-template-rows: unset !important;
-
     }
+    
+    .container-about article{
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    .container-about img{
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .container-about img:hover{
+        transform: scale(1.02);
+    }
+
     .grid-item{
         width: 100%;
         padding: 0;
@@ -373,10 +428,16 @@ footer {
         width: 100%;
     }
     .logo img{
-        margin: 0 auto;
-        display: block;
+        max-height: 100px;
+        margin: 10px auto;
+        
     }
-    
+    img{
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto 10px !important;
+    }
     .menu {
         display: flex;
         flex-direction: column;
@@ -391,15 +452,20 @@ footer {
         text-align: center;
         border-bottom: 1px solid #ccc;
     }
-
+    .container-comfort{
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px;
+    }
     .grid-container,
     .caja1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 20px;
-        padding: 0 10px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 20px !important;
+        padding: 0 10px !important;
     }
 
     .image-container img {

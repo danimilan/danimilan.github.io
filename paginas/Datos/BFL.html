@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Portfolio Dani Milán</title>
+        <link rel="icon" type="image/png" href="../../img/idea.png">
+        <link rel="stylesheet" type="text/css" href="../../estilo-portfolio.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    </head>
+    <header>
+        <div class="container roboto">
+            <a href="../../index.html" class="logo">
+                <img src="../../img/logo.png" alt="Imagen 1">
+            </a>
+            <nav class="menu">
+                <a href="../../paginas/Diseño UX/UX.html">Diseño de UX</a>
+                <a href="../../paginas/Datos/Datos.html"><b>Análisis de datos</b></a>
+                <a href="../../paginas/Sobre-mi.html"><b>Sobre mí</b></a>
+            </nav>
+        </div>
+    </header>
+<body>
+    <div class="caja1 roboto">
+        <article>
+            <img class ="portada-movil" src="../../img/Betis florida/portada-datos.png" alt="portada">
+            <p>
+                <b>*NOTA:</b> soy consciente de que Football Manager 2024 no tiene todas las estadísticas suficientes a la hora de valorar a un jugador 
+                y también influyen otros elementos a la hora de hacer un fichaje en la vida real, esto es un simple ejercicio de toma de datos, 
+                limpieza y análisis de los mismos. 
+            </p>
+            <h4>1. Introducción</h4>
+            <p>
+                En esta partida de Football Manager 2024 decidí poner el mod del sistema regional España FM 2024/25 para poder llevar al equipo 
+                de mi barrio, el Betis Florida, desde la 7ª categoría hasta lo más alto del fútbol europeo. Desde el inicio del juego en la 
+                temporada 24/25 he llegado hasta la temporada 34/35 en la que por fin he conseguido subir el equipo a primera división. En este 
+                informe voy a analizar a jugadores y equipos de la primera y segunda división del país para ver que fichajes puedo realizar para 
+                la siguiente temporada y así evitar el descenso. <br> <br>
+                Este análisis se ha realizado justo después de terminar la liga por lo que aún falta saber si se va a recibir más dinero o va a 
+                haber jugadores que quieran irse. El equipo ha terminado 3 en la liga obteniendo la plaza para subir directamente (ya que el Atlético de Madrid B
+                al haber ganado la competición no puede subir por ser un equipo filial) y tiene un presupuesto para fichajes de 7.850.238€ y un 
+                presupuesto disponible para sueldos de 174.000€ al mes de un total de 340.992€ haciendo que sea un presupuesto bajo para el 
+                nivel de la competición al que se va a ir. A los problemas del poco presupuesto para sueldos y fichajes hay que sumarle que hay 
+                que renovar jugadores importantes y algunos se querrán ir. 
+            </p>
+            <h4>2. Toma, limpieza y transformación de datos</h4>
+            <p>
+                Para extraer los datos me metí dentro del juego en el menú plantilla, dentro de este menú hay un submenú desplegable del que se 
+                pueden guardar los datos usando el comando CTRL + P. Este comando permite crear un documento .html para guardar los datos, para 
+                algunos datos como los de la plantilla tuve que crear documentos de Excel ya que tenía que editar algunos elementos. Aquí un 
+                ejemplo del documento que se crea al usar el comando:
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/plantilla elche.png" alt="Plantilla Elche">
+                <br><br>
+                Los primeros archivos que elegí para pasarlos a Excel fueron los de la segunda división, estos se dividían en: disciplina, 
+                plantilla, juego general, liga, ocasiones de gol, portero, goles. Estos serán los nombres de las futuras tablas con sus distintos 
+                elementos y lo mismo será para los documentos de primera división. 
+            </p>
+            <p>
+                Después de crear los excels necesarios utilicé powerBI para poder hacer el resto del trabajo, ya sea la limpieza y transformación de 
+                datos y el posterior análisis. Utilizando como ejemplo la imagen, a la hora de limpiar datos quité las columnas posición (columna de 
+                la izquierda), inf y minutos acordados ya que no servían de mucho. A la hora de transformar los datos tuve que reemplazar valores de 
+                columnas que tenían el valor “-“ por uno numérico, esto sucede mucho en FM, que en vez de poner un valor “0” ponen el guion.
+                <br><br>
+                También cree una tabla en la que se encontrasen un id único para cada jugador, el nombre, el equipo y la posición para así evitar 
+                duplicaciones. Las tablas tanto de los datos de primera y segunda división formarían un esquema de estrella.
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/modelo en estrella.png" alt="Modelo en estrella">
+                <br><br>
+            </p>
+            <h4>3. Análisis de datos</h4>
+            <p>
+                Se van a usar 7 tablas para analizar datos: <b>disciplina, plantilla, juego general, liga segunda, ocasiones de gol, portero, goles</b>.<br><br> 
+                Dentro de la tabla <b>disciplina</b> se encuentran los siguientes datos o columnas: amarillas, rojas, entradas cometidas, entradas 
+                intentadas y faltas cometidas. <br><br>
+                En la tabla <b>plantilla:</b> ID_Nombre, Nombre, equipo, posición, edad, nacionalidad, sueldo y valor de traspaso. <br><br>
+                En <b>juego general:</b> los cabezazos y cabezazos intentados, los centros cometidos e intentados, los pases que provocaron 
+                errores que costaron goles, los pases cometidos y los intentados. <br><br>
+                En la tabla de <b>liga segunda:</b> el % de disparos que fueron a puerta, el % de pases cometidos, las asistencias, las entradas que se realizan en 90 minutos, regates en 90 minutos y el xG. En 
+                ocasiones de gol: disparos, goles, penaltis pitados, penaltis marcados y tiros a puerta. <br><br>
+                En la tabla de <b>portero:</b> los goles encajados, % de paradas esperadas, la ratio de paradas y el número de veces que la portería quedó imbatida. <br><br>
+                Y por último la tabla de <b>goles:</b> goles, disparos, y xG. Tras una breve descripción de la formación y el estilo de juego del equipo realizaré 
+                cuatro tablas: porteros, disciplina, juego general y goles. <br><br> 
+                En estas tablas se hará un ranking para ver en que puestos ha quedado el equipo. Después de esto se investigará que equipos tienen jugadores de las posiciones necesarias que puedan ser fichados en 
+                el rango del presupuesto que se tiene. 
+            </p>
+            <h4>3.1. El equipo</h4>
+            <p>
+                El equipo tiene una plantilla de 22 jugadores y juega con una formación 4-2-3-1 con un estilo de juego basado en la posesión del 
+                balón, priorizando los pases cortos y la salida de balón con el portero jugando en corto. En la línea defensiva se juega con un 
+                portero que de salida al balón, con dos centrales con toque y dos carrileros. En el centro del campo hay un centrocampista 
+                todoterreno y un centrocampista recuperador. En el ataque dos delanteros interiores, un organizador adelantado como mediapunta y 
+                en punta un delantero avanzado. <br> <br>
+                <img class ="esquema" src="../../img/Betis florida/alineacion.png" alt="Plantilla titular">
+                <br><br> 
+            </p>
+            <h4>3.2. Análisis de la liga</h4>
+            <p>
+                Como se puede ver en la imagen el equipo quedó en 3ª posición metiendo a jugadores en los mejores puestos de máximos goleadores, 
+                asistentes y con más tiros a puerta. Esto hace que a priori no se necesiten jugadores para el ataque, pero vamos a verlo con más 
+                profundidad en adelante. <br><br>
+                <img class ="esquema" src="../../img/Betis florida/resultado liga.png" alt="Resultado liga 2 división">
+                <br><br>
+                El no aparecer en los rankings de más faltas cometidas, amarillas, rojas y la ratio de paradas puede parecer ser una buena señal, 
+                pero para asegurarnos vamos a empezar a ver los números de los equipos.
+                <br><br>
+            </p>
+            <h4>3.2.1. Porteros</h4>
+            <p>
+                <img class ="esquema" src="../../img/Betis florida/ranking porteros.png" alt="Ranking porteros 2 división">
+                <br><br>
+                En cuanto a porteros el equipo se encuentra en el puesto nº13 en porterías imbatidas, el 16 en la ratio de paradas y el 12 en 
+                las paradas esperadas, pero lo peor es que se encuentra en el primer puesto en goles encajados, todos estos datos juntos hacen 
+                que este en el puesto 21 de 22. Estos datos hacen ver que se necesita un mejor portero y también una mejor defensa para evitar 
+                ser goleado. 
+                <br><br>
+            </p>
+            <h4>3.2.2. Disciplina</h4>
+            <p>
+                <img class ="esquema" src="../../img/Betis florida/ranking disciplina.png" alt="Ranking disciplina 2 división">
+                <br><br>
+                Aquí el equipo se encuentra en mejor posición general, la 9ª posición, pero hay que mejorar las entradas y la ratio de estas en 
+                los 90 minutos. Es un equipo en el que la efectividad de las entradas está cerca del 80% (colocándose en 4ª posición), lo que 
+                hace que sea uno de los equipos que menos faltas ha hecho, pero sí esta entre los 10 primeros equipos que más tarjetas ha 
+                recibido. Hay que buscar jugadores que tengan una mayor eficacia a la hora de cometer entradas y pocas faltas.
+                <br><br>
+            </p>
+            <h4>3.2.3. Juego general</h4>
+            <p>
+                <img class ="esquema" src="../../img/Betis florida/ranking juego general.png" alt="Ranking juego general 2 división">
+                <br><br>
+                En este ranking el juego aéreo perjudica al equipo ya que en los duelos de cabezazos se tiene muy poca efectividad al igual que 
+                a la hora de centrar ya que los datos ponen al equipo en la 20ª posición. En cuanto a la eficacia y la cantidad de pases el 
+                equipo está dentro del top 10. <br><br>  Esto se debe al estilo de juego de pases cortos del equipo, por lo que yo no le daría mucha 
+                importancia a la hora de buscar jugadores que sean muy buenos cabeceadores, echaría un vistazo a ver si se podría obtener alguno 
+                con esas características, pero no sería lo primordial. <br><br>  También miraría centrocampistas para poder mejorar la efectividad de los 
+                pases y tener más posibilidad de rotación en la plantilla con jugadores de calidad siempre y cuando no salgan muy caros porque 
+                no es la prioridad. 
+                <br><br>
+            </p>
+            <h4>3.2.4. Goles</h4>
+            <p>
+                <img class ="esquema" src="../../img/Betis florida/ranking goles.png" alt="Ranking goles 2 división">
+                <br><br>
+                Aquí el equipo se encuentra en el 3 puesto total, ya que ha sido el que más goles y asistencias ha metido y el que mejor 
+                eficacia ha tenido de cara a puerta con el 40% de los disparos. Si que no ha sido el que más regates ha hecho, pero viendo 
+                el resto de los valores no le daría mucha importancia. Con estos datos no creo necesario fichar jugadores de ataque.
+                <br><br>
+                <b>Resumen:</b> El equipo necesita fichar un mejor portero, buscar defensas para reforzar la misma y si tienen cualidad de 
+                cabeceo mejor, también mirar algún jugador del centro del campo para reforzarlo y no se necesita fichar ningún jugador atacante.
+                <br><br>
+            </p>
+            <h4>4. Fichajes</h4>
+            <p>
+                Al empezar a analizar los jugadores de primera división he visto que es prácticamente imposible ficharlos por varias razones, 
+                las principales es que cuando encontraba un jugador dentro del presupuesto de fichajes su ficha salarial era demasiado alta y 
+                viceversa, también está la posibilidad de que no quieran ir a un equipo recién ascendido, por eso me he centrado en los 
+                jugadores que puedo fichar de segunda división. Empezamos por los porteros: 
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/fichajes porteros filtro 2.png" alt="porteros de 2 división">
+                <br><br>
+                Esta es la lista de todos los porteros de segunda división que han jugado más de 10 partidos. 
+                Viendo el presupuesto y las características a mejorar, los candidatos a sustituir a <b>Sebastián Barajas</b> serían, <b>Marco Suárez</b>
+                del Oviedo, <b>Christian Salavert</b> del Elche y <b>Antonio</b> del Racing de Santander. Si ninguno de estos quisiera venirse al 
+                equipo como última opción iría a por <b>Juan Cantero</b> del Granada. En caso que ninguno estuviera interesado ya habría 
+                que mirar otras opciones en otros mercados. <br><br>
+                <img class ="esquema" src="../../img/Betis florida/comparativa porteros.png" alt="comparativa de porteros de 2 división">
+                <br><br>
+                En esta comparativa se ve como Marco Suárez es la mejor opción ya que, aunque solo haya jugado 23 partidos de titular solo ha 
+                recibido 16 goles y 15 veces ha tenido la portería imbatida. Si no se pudiese el siguiente seria <b>Salavert</b> seguido de 
+                <b>Antonio</b> y por último <b>Cantero</b>. 
+                <br><br>
+                En cuanto a los defensas estos 6 han sido los que mejores características tienen para mejorar el equipo ya que han realizado 
+                muchas entradas con una alta efectividad rondando el 80%.
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/defensas a fichar 2.png" alt="defensas de 2 división">
+                <br><br>
+                Si que en el juego aéreo no destacan mucho dos jugadores, pero el resto esta bien en este ámbito. También <b>Toimil</b> es un 
+                jugador que ha cometido muchas faltas incluyendo varias amarillas, pero por los números que tiene merece la pena el riesgo de 
+                ficharlo. <br><br>
+                Los valores del traspaso tirando por bajo son bastante asequibles y permitiría cambiar prácticamente toda la defensa ya que 
+                cubren las posiciones que necesita el equipo, pero esto lo más probable es que no pase, por eso, si lo que piden va por lo alto, 
+                priorizaría los fichajes de <b>Cobo, Granero, Toimil y Zafra.</b> <b>Salinas</b> y <b>Morente</b> serían los mejores fichajes, pero cada uno de ellos 
+                se come la mitad del presupuesto y hay varias áreas a mejorar, de conseguir suplir esas carencias mediante jugadores baratos se 
+                les podría fichar, pero no son objetivos prioritarios. <br><br>
+                En caso de no poder fichar a alguno de estos jugadores habría que mirar más posibles candidatos que estén por encima del 73% de 
+                efectividad de entradas y hayan cometido más de 80 entradas que es el mayor número de entradas que ha realizado un jugador del 
+                Betis Florida.<br><br>
+                Los centrocampistas que he visto que pueden servir de ayuda para el equipo son los siguientes: <br><br>
+                <img class ="esquema" src="../../img/Betis florida/fichajes centrocampistas 2.png" alt="centrocampistas de 2 división">
+                <br><br>
+                Ante estas opciones habría que fichar a <b>Hugo de Llanos</b> ya que sería un buen fichaje para rotar con <b>Etxarriz</b> y vendría gratis. De no querer 
+                venir otras opciones podrían ser <b>Fernando</b> del Granada, <b>Javier Calvo</b> del Rayo, <b>Unai Hernández</b> del Eibar y por último a 
+                <b>Arnal</b> del Valladolid que es de los más jóvenes de la lista y tiene potencial. 
+                Vistos los objetivos ahora toca hacer números, usaré los valores de fichajes más altos de los jugadores porque va a ser lo más probable. 
+                <br><br>
+                El presupuesto de fichajes es de 7.850.238€ y el de sueldos de 174.000€ si queremos fichar las primeras opciones sería así: 
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/opcion A.png" alt="Opción A">
+                <br><br>
+                De fichar a Unai no daría margen a subir muchos sueldos y él probablemente querría más dinero al irse de equipo y se le podría dar ajustando el resto 
+                que quedase del presupuesto original de 7.850.238€ para intentar atraer a la gente, pero lo veo demasiado ajustado. Otra opción sería esta:
+                <br><br>
+                <img class ="esquema" src="../../img/Betis florida/opcion B.png" alt="Opción B">
+                <br><br>
+                Con estos fichajes en el caso de que el portero no quisiera venir habría margen en ambos presupuestos para intentar fichar a alguno del resto de la lista. 
+                También a los nuevos jugadores se les puede dar un incremento del 20 o 30% y obviamente a los que menos cobran o no cobran un sueldo 10k – 20k y 
+                entraría dentro del presupuesto. O si queremos ir más ajustados se podrían fichar más centrocampistas, pero la realidad es que la opción B es la que veo 
+                más posible y si en el caso de que algunos jugadores no quieran venir hay margen de actuación mirando otros candidatos o incluso otros mercados. <br><br>
+                Todo esto está pensado en la situación en la que ningún jugador se quiera ir, ya que de irse alguno dejaría espacio para nuevos movimientos y también teniendo 
+                en cuenta que a algunos jugadores hay que renovarlos.
+                <br><br>
+            </p>
+        </article>
+    </div>
+</body>
+<footer class="roboto "><b>©2025</b></footer>
+</html>
+
+
+
