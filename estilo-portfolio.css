@@ -139,10 +139,7 @@ html,body{
     background-color: white;
 }
 h4{
-    /* color: #6246ea; !-->
-    
-    d1d1e9
-    */
+    /* color: #6246ea; */
     color:#6246EA;
 }
 
@@ -345,6 +342,7 @@ footer {
         padding: 0 10px;
         grid-template-columns: unset !important;
         grid-template-rows: unset !important;
+        border: 5px solid red;
     }
     .grid-item{
         width: 100%;
