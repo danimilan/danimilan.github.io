@@ -322,17 +322,6 @@ footer {
     bottom: 0;
 }
 @media (max-width: 768px) {
-    .movil,
-    .movil-comfort,
-    .movil-diy,
-    .portada-movil,
-    .portada-movil-diy,
-    .portada-comfort,
-    .portada,
-    .portada-diy,
-    .esquema,
-    .esquema-diy,
-    .esquema-diy1,
     .esquema-diy2 {
         width: 100% !important;
         height: auto !important;
@@ -348,12 +337,14 @@ footer {
     }
 
     .container-UX {
-        display: flex;
-        flex-direction: column;
+        display: flex !important;
+        flex-direction: column !important;
         align-items: center;
         width: 100%;
         gap: 20px; 
         padding: 0 10px;
+        grid-template-columns: unset !important;
+        grid-template-rows: unset !important;
     }
     .grid-item{
         width: 100%;
