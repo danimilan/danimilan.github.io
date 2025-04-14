@@ -319,6 +319,9 @@ footer {
     bottom: 0;
 }
 @media (max-width: 768px) {
+    .roboto{
+        font-size: 14px;
+    }
     .esquema-diy2 {
         width: 100% !important;
         height: auto !important;
@@ -328,6 +331,7 @@ footer {
     }
 
     .image-container {
+        min-width: unset;
         max-width: 100% !important;
         width: 100% !important;
         padding: 0 10px;
@@ -338,11 +342,12 @@ footer {
         flex-direction: column !important;
         align-items: center;
         width: 100%;
+        max-width: 100%;
         gap: 20px; 
         padding: 0 10px;
         grid-template-columns: unset !important;
         grid-template-rows: unset !important;
-        border: 5px solid red;
+
     }
     .grid-item{
         width: 100%;
