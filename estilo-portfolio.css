@@ -313,7 +313,7 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px;
-    color: black !important;
+    color: #6246EA !important;
     background-color: white;
     position: relative; /* Si el contenido es poco, lo mantiene en su posición */
     bottom: 0;
@@ -355,7 +355,7 @@ footer {
         gap: 20px;
         padding: 0 10px;
     }
-    header .container {
+    .container {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -370,6 +370,7 @@ footer {
         margin: 0;
         gap: 20px;
         flex-direction: column;
+        align-items: center;
     }
     .container-UX,
     .grid-container,
