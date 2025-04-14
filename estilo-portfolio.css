@@ -412,4 +412,18 @@ footer {
         justify-content: center;
         align-items: center;
     }
+    .image-container,
+    .grid-item,
+    .caja1,
+    .container-UX,
+    .container-about,
+    .container,
+    .logo,
+    .menu,
+    .cabecera {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box;
+    }
 }
