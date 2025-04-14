@@ -131,15 +131,15 @@ html,body{
     justify-content: space-between; /* Empuja los elementos */
     width: 100%;
     padding: 10px;
-    color: black;
-    background-color: #9fabecbe;
+    color: #6246EA;
+    background-color: white;
 }
 h4{
     /* color: #6246ea; !-->
     
     d1d1e9
     */
-    color:black;
+    color:#6246EA;
 }
 
 .logo {
@@ -314,7 +314,7 @@ footer {
     text-align: center;
     padding: 10px;
     color: black !important;
-    background-color: #9fabecbe;
+    background-color: white;
     position: relative; /* Si el contenido es poco, lo mantiene en su posición */
     bottom: 0;
 }
@@ -370,5 +370,27 @@ footer {
         margin: 0;
         gap: 20px;
         flex-direction: column;
+    }
+    .container-UX,
+    .grid-container,
+    .caja1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .image-container {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
     }
 }
