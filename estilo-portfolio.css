@@ -384,10 +384,18 @@ footer {
     }
     
     .menu {
-        margin: 0;
-        gap: 20px;
+        display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .menu a{
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
     }
 
     .grid-container,
@@ -401,15 +409,18 @@ footer {
     }
 
     .image-container {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 80vh;
+        gap: 20px;
+        padding: 10px;
     }
 
     .image-container img {
         width: 100%;
         height: auto;
+        border-radius: 10px;
     }
     .titulo {
         display: flex;
