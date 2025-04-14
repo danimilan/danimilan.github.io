@@ -160,7 +160,6 @@ h4{
 .grid-item {
     display: flex;
     justify-content: center;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
@@ -350,8 +349,15 @@ footer {
     }
 
     .container-UX {
+        display: grid;
         grid-template-columns: 1fr;
+        gap: 20px;
         width: 100%;
+        padding: 0 10px;
+    }
+    .grid-item{
+        display: flex;
+        justify-content: center;
     }
 
     .caja1 {
@@ -383,7 +389,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    .container-UX,
+
     .grid-container,
     .caja1 {
         display: flex;
@@ -406,8 +412,8 @@ footer {
         height: auto;
     }
     .titulo {
-        width: 100%;
-        text-align: center;
-        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
