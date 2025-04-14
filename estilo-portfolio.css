@@ -342,22 +342,22 @@ footer {
     }
 
     .image-container {
-        min-width: unset !important;
         max-width: 100% !important;
         width: 100% !important;
         padding: 0 10px;
     }
 
     .container-UX {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
+        gap: 20px; 
         padding: 0 10px;
     }
     .grid-item{
-        display: flex;
-        justify-content: center;
+        width: 100%;
+        padding: 0;
     }
 
     .caja1 {
@@ -408,19 +408,10 @@ footer {
         padding: 0 10px;
     }
 
-    .image-container {
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        max-height: 80vh;
-        gap: 20px;
-        padding: 10px;
-    }
-
     .image-container img {
         width: 100%;
         height: auto;
-        border-radius: 10px;
+        display: block;
     }
     .titulo {
         display: flex;
