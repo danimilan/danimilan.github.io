@@ -96,10 +96,14 @@ a{
 
 
 html,body{
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #fffffe;
     overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -358,6 +362,9 @@ footer {
     background-color: white;/* Si el contenido es poco, lo mantiene en su posición */
 
 }
+main{
+    flex: 1;
+}
 @media (max-width: 768px) {
     .roboto{
         font-size: 14px;
@@ -376,7 +383,20 @@ footer {
         width: 100% !important;
         padding: 0 10px;
     }
-
+    .container-UX-index  {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+    .container-UX-index > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
     .container-UX {
         display: flex !important;
         flex-direction: column !important;

@@ -29,15 +29,15 @@
             <p>
                 <b>*NOTA:</b> soy consciente de que Football Manager 2024 no tiene todas las estadísticas suficientes a la hora de valorar a un jugador 
                 y también influyen otros elementos a la hora de hacer un fichaje en la vida real, esto es un simple ejercicio de toma de datos, 
-                limpieza y análisis de los mismos. 
+                limpieza y análisis de los mismos.
             </p>
             <h4>1. Introducción</h4>
             <p>
-                En esta partida de Football Manager 2024 decidí poner el mod del sistema regional España FM 2024/25 para poder llevar al equipo 
-                de mi barrio, el Betis Florida, desde la 7ª categoría hasta lo más alto del fútbol europeo. Desde el inicio del juego en la 
-                temporada 24/25 he llegado hasta la temporada 34/35 en la que por fin he conseguido subir el equipo a primera división. En este 
-                informe voy a analizar a jugadores y equipos de la primera y segunda división del país para ver que fichajes puedo realizar para 
-                la siguiente temporada y así evitar el descenso. <br> <br>
+                En esta partida de Football Manager 2024 decidí poner el mod del <a href="https://www.fmsite.net/files/file/1506-sistema-regional-espana-fm24-24-25/" target="_blank" style="color: #6246EA;"><u>sistema regional España FM 2024/25</u></a>  
+                para poder llevar al equipo de mi barrio, el Betis Florida, desde la 7ª categoría hasta lo más alto del fútbol europeo. Desde el 
+                inicio del juego en la temporada 24/25 he llegado hasta la temporada 34/35 en la que por fin he conseguido subir el equipo a 
+                primera división. En este informe voy a analizar a jugadores y equipos de la primera y segunda división del país para ver que 
+                fichajes puedo realizar para la siguiente temporada y así evitar el descenso. <br> <br>
                 Este análisis se ha realizado justo después de terminar la liga por lo que aún falta saber si se va a recibir más dinero o va a 
                 haber jugadores que quieran irse. El equipo ha terminado 3 en la liga obteniendo la plaza para subir directamente (ya que el Atlético de Madrid B
                 al haber ganado la competición no puede subir por ser un equipo filial) y tiene un presupuesto para fichajes de 7.850.238€ y un 
@@ -62,29 +62,39 @@
                 Después de crear los excels necesarios utilicé powerBI para poder hacer el resto del trabajo, ya sea la limpieza y transformación de 
                 datos y el posterior análisis. Utilizando como ejemplo la imagen, a la hora de limpiar datos quité las columnas posición (columna de 
                 la izquierda), inf y minutos acordados ya que no servían de mucho. A la hora de transformar los datos tuve que reemplazar valores de 
-                columnas que tenían el valor “-“ por uno numérico, esto sucede mucho en FM, que en vez de poner un valor “0” ponen el guion.
+                columnas y editar los tipos de datos de cada columna.
                 <br><br>
-                También cree una tabla en la que se encontrasen un id único para cada jugador, el nombre, el equipo y la posición para así evitar 
-                duplicaciones. Las tablas tanto de los datos de primera y segunda división formarían un esquema de estrella.
+                También cree una tabla, 2 division Dim_nombres, en la que se encontrasen un id único para cada jugador, el nombre, el equipo y la 
+                posición para así evitar duplicaciones, esta tabla se usará como nexo para las otras. Las tablas tanto de los datos de primera y 
+                segunda división formarían un esquema de estrella.
                 <br><br>
                 <img class ="esquema" src="../../img/Betis florida/modelo en estrella.png" alt="Modelo en estrella">
                 <br><br>
             </p>
             <h4>3. Análisis de datos</h4>
             <p>
-                Se van a usar 7 tablas para analizar datos: <b>disciplina, plantilla, juego general, liga segunda, ocasiones de gol, portero, goles</b>.<br><br> 
+                Se van a usar 7 tablas para analizar datos: <b>disciplina, plantilla, juego general, liga segunda, ocasiones de gol, portero, goles</b>.
+                <br><br> 
                 Dentro de la tabla <b>disciplina</b> se encuentran los siguientes datos o columnas: amarillas, rojas, entradas cometidas, entradas 
-                intentadas y faltas cometidas. <br><br>
-                En la tabla <b>plantilla:</b> ID_Nombre, Nombre, equipo, posición, edad, nacionalidad, sueldo y valor de traspaso. <br><br>
+                intentadas y faltas cometidas. 
+                <br><br>
+                En la tabla <b>plantilla:</b> Nombre, equipo, posición, edad, nacionalidad, sueldo y valor de traspaso. 
+                <br><br>
                 En <b>juego general:</b> los cabezazos y cabezazos intentados, los centros cometidos e intentados, los pases que provocaron 
-                errores que costaron goles, los pases cometidos y los intentados. <br><br>
-                En la tabla de <b>liga segunda:</b> el % de disparos que fueron a puerta, el % de pases cometidos, las asistencias, las entradas que se realizan en 90 minutos, regates en 90 minutos y el xG. En 
-                ocasiones de gol: disparos, goles, penaltis pitados, penaltis marcados y tiros a puerta. <br><br>
-                En la tabla de <b>portero:</b> los goles encajados, % de paradas esperadas, la ratio de paradas y el número de veces que la portería quedó imbatida. <br><br>
+                errores que costaron goles, los pases cometidos y los intentados. 
+                <br><br>
+                En la tabla de <b>liga segunda:</b> el % de disparos que fueron a puerta, el % de pases cometidos, las asistencias, las entradas que se 
+                realizan en 90 minutos, regates en 90 minutos y el xG. En ocasiones de gol: disparos, goles, penaltis pitados, penaltis marcados y tiros 
+                a puerta. 
+                <br><br>
+                En la tabla de <b>portero:</b> los goles encajados, % de paradas esperadas, la ratio de paradas y el número de veces que la portería quedó 
+                imbatida. 
+                <br><br>
                 Y por último la tabla de <b>goles:</b> goles, disparos, y xG. Tras una breve descripción de la formación y el estilo de juego del equipo realizaré 
-                cuatro tablas: porteros, disciplina, juego general y goles. <br><br> 
-                En estas tablas se hará un ranking para ver en que puestos ha quedado el equipo. Después de esto se investigará que equipos tienen jugadores de las posiciones necesarias que puedan ser fichados en 
-                el rango del presupuesto que se tiene. 
+                cuatro tablas: porteros, disciplina, juego general y goles. 
+                <br><br> 
+                En estas tablas se hará un ranking para ver en que puestos ha quedado el equipo. Después de esto se investigará que equipos tienen 
+                jugadores de las posiciones necesarias que puedan ser fichados en el rango del presupuesto que se tiene. 
             </p>
             <h4>3.1. El equipo</h4>
             <p>
@@ -133,9 +143,9 @@
                 <br><br>
                 En este ranking el juego aéreo perjudica al equipo ya que en los duelos de cabezazos se tiene muy poca efectividad al igual que 
                 a la hora de centrar ya que los datos ponen al equipo en la 20ª posición. En cuanto a la eficacia y la cantidad de pases el 
-                equipo está dentro del top 10. <br><br>  Esto se debe al estilo de juego de pases cortos del equipo, por lo que yo no le daría mucha 
+                equipo está dentro del top 10. <br><br> Esto se debe al estilo de juego de pases cortos del equipo, por lo que yo no le daría mucha 
                 importancia a la hora de buscar jugadores que sean muy buenos cabeceadores, echaría un vistazo a ver si se podría obtener alguno 
-                con esas características, pero no sería lo primordial. <br><br>  También miraría centrocampistas para poder mejorar la efectividad de los 
+                con esas características, pero no sería lo primordial. <br><br> También miraría centrocampistas para poder mejorar la efectividad de los 
                 pases y tener más posibilidad de rotación en la plantilla con jugadores de calidad siempre y cuando no salgan muy caros porque 
                 no es la prioridad. 
                 <br><br>
@@ -216,7 +226,7 @@
         </article>
     </div>
 </body>
-<footer class="roboto "><b>©2025</b></footer>
+<footer class="roboto"><b>©2025</b></footer>
 </html>
 
 
