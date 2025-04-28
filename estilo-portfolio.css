@@ -94,7 +94,6 @@ a{
     text-align: left;
 }
 
-
 html,body{
     height: 100%;
     margin: 0;
@@ -204,6 +203,7 @@ h4{
     align-items: center;
     padding: 40px 0px;
     gap: 40px;
+
 }
 .image-container-index {
     position: relative;
